@@ -1,1 +1,62 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"
+      >KanDo <i class="bi bi-bounding-box-circles heading bi-lg"></i
+    ></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link active" aria-current="page" routerLink="/ToDo"
+            >Todo's <i class="bi bi-journal-check"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Kanban" *ngIf="isAuthenticated"
+            >Kanban <i class="bi bi-kanban"></i
+          ></a>
+        </li>
+      </ul>
+
+      <form class="d-flex" *ngIf="isAuthenticated">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Account <i class="bi bi-person-badge-fill"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item dd" (click)="onLogout()"
+                  >Logout <i class="bi bi-box-arrow-right"></i
+                ></a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  >Account Detail <i class="bi bi-person-circle"></i
+                ></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</nav>

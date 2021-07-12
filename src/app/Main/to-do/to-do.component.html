@@ -1,1 +1,45 @@
-<p>to-do works!</p>
+<app-to-do-add *ngIf="ShowAddNotes"></app-to-do-add>
+<br />
+<div class="wrapper">
+  <button class="btn btn-primary" (click)="onToggle()">
+    {{ ShowAddNotes ? "Back To Notes" : "Add Notes" }}
+    <i class="bi {{ ShowIcon ? 'bi-back' : 'bi-plus-lg' }}"></i>
+  </button>
+  &nbsp;
+  <button class="btn btn-danger" *ngIf="!ShowAddNotes">
+    Clear All Posts <i class="bi bi-trash"></i>
+  </button>
+</div>
+<br />
+<div class="row" *ngIf="!ShowAddNotes">
+  <div class="alert alert-danger alert-dismissible" *ngIf="error">
+    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <h3>An Error Occured</h3>
+    <strong>{{ error }}</strong>
+  </div>
+
+  <br />
+  <div
+    class="alert alert-danger alert-dismissible"
+    *ngIf="loadedToDo.length < 1 && !error"
+  >
+    <a href="#" class="close" data-dismiss="alert" aria-label="close"
+      >&times;</a
+    >
+    <strong>No Notes were avalible</strong>
+  </div>
+  <br />
+  <div class="more" *ngIf="!ShowAddNotes">
+    <ul class="list-group" *ngIf="loadedToDo.length >= 1">
+      <li class="list-group-item" *ngFor="let note of loadedToDo">
+        <h1>
+          {{ note.name }}
+        </h1>
+        <p>
+          {{ note.desc }}
+        </p>
+        <strong id="{{ note.Priority }}"> {{ note.Priority }}</strong>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,1 +1,68 @@
-<p>auth works!</p>
+<div
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+  *ngIf="error"
+>
+  <strong>An Error Occured</strong> {{ error }}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<app-loading *ngIf="isLoading"></app-loading>
+<form
+  *ngIf="!isLoading"
+  class="form-signin"
+  #AuthForm="ngForm"
+  (ngSubmit)="onAuthenticate(AuthForm)"
+>
+  <img
+    class="mb-4"
+    src="https://image.flaticon.com/icons/png/128/3475/3475761.png"
+    alt=""
+    width="72"
+    height="72"
+  />
+  <h1 class="h3 mb-3 font-weight-normal">
+    Please sign {{ isLoginMode ? "In" : "Up" }} to KanDo
+  </h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input
+    ngModel
+    type="email"
+    id="inputEmail"
+    class="form-control"
+    placeholder="Email address"
+    name="email"
+    required
+    autofocus
+    email
+  />
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input
+    ngModel
+    type="password"
+    id="inputPassword"
+    class="form-control"
+    placeholder="Password"
+    required
+    name="password"
+  />
+  <button
+    class="btn btn-lg btn-primary btn-block"
+    type="submit"
+    [disabled]="!AuthForm.valid"
+  >
+    Sign {{ isLoginMode ? "In" : "Up" }}
+  </button>
+  <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+  <p class="mt-5 mb-3 text-muted" (click)="isLoginMode = !isLoginMode">
+    {{
+      isLoginMode
+        ? "Dont have an account? SignUp"
+        : "Already Have An Account? Login"
+    }}
+  </p>
+</form>

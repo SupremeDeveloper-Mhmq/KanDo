@@ -1,0 +1,93 @@
+<div class="row">
+  <hr />
+  <form #TodoForm="ngForm" class="form-group" (ngSubmit)="onPostToDo(TodoForm)">
+    <div class="form-group">
+      <label for="name">Todo Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="form-control"
+        ngModel
+        required
+        placeholder="Please Enter Todo's Name"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="desc">Todo Name</label>
+      <textarea
+        name="desc"
+        id="desc"
+        class="form-control"
+        ngModel
+        required
+        rows="5"
+        placeholder="Enter Todo Description"
+      ></textarea>
+    </div>
+    <br />
+    <div class="form-group">
+      <p class="text-muted"><strong>Select Priority</strong></p>
+      <div class="form-check form-check-inline">
+        <input
+          ngModel
+          class="form-check-input"
+          type="radio"
+          name="Priority"
+          id="inlineRadio2"
+          value="1"
+        />
+        <label class="form-check-label text-warning" for="inlineRadio2"
+          ><i class="bi bi-exclamation text-warning"></i> Important but Not
+          Very</label
+        >
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          ngModel
+          class="form-check-input"
+          type="radio"
+          name="Priority"
+          id="inlineRadio3"
+          value="2"
+        />
+        <label class="form-check-label text-danger" for="inlineRadio3"
+          ><i class="bi bi-exclamation text-danger"></i> Important</label
+        >
+      </div>
+      <br />
+    </div>
+    <div class="form-group">
+      <p class="text-muted"><strong>Select Due</strong></p>
+      <div class="form-check form-check-inline">
+        <input
+          ngModel
+          class="form-check-input"
+          type="radio"
+          name="Due"
+          id="inlineRadio2"
+          value="1"
+        />
+        <label class="form-check-label text-warning" for="inlineRadio2"
+          ><i class="bi bi-exclamation text-warning"></i> Not Emergancy</label
+        >
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          ngModel
+          class="form-check-input"
+          type="radio"
+          name="Due"
+          id="inlineRadio3"
+          value="2"
+        />
+        <label class="form-check-label text-danger" for="inlineRadio3"
+          ><i class="bi bi-exclamation text-danger"></i> Emegency</label
+        >
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Todo</button>
+  </form>
+</div>
