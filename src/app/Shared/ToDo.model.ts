@@ -3,5 +3,6 @@ export interface ToDo {
   desc: string;
   Priority: number;
   Due: number;
+  Proggress: number;
   id?: string;
 }

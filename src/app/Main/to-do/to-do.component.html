@@ -1,8 +1,10 @@
+<app-loading *ngIf="isLoading"></app-loading>
+
 <app-to-do-add *ngIf="ShowAddNotes"></app-to-do-add>
 <br />
 <div class="wrapper">
   <button class="btn btn-primary" (click)="onToggle()">
-    {{ ShowAddNotes ? "Back To Notes" : "Add Notes" }}
+    {{ ShowAddNotes ? "Back To To Do" : "Add To Do" }}
     <i class="bi {{ ShowIcon ? 'bi-back' : 'bi-plus-lg' }}"></i>
   </button>
   &nbsp;
@@ -11,7 +13,7 @@
   </button>
 </div>
 <br />
-<div class="row" *ngIf="!ShowAddNotes">
+<div class="row" *ngIf="!ShowAddNotes && !isLoading">
   <div class="alert alert-danger alert-dismissible" *ngIf="error">
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <h3>An Error Occured</h3>
@@ -38,7 +40,9 @@
         <p>
           {{ note.desc }}
         </p>
-        <strong id="{{ note.Priority }}"> {{ note.Priority }}</strong>
+        <strong id="{{ note.Priority }}">
+          {{ note.Priority }}{{ note.Due }}</strong
+        >
       </li>
     </ul>
   </div>

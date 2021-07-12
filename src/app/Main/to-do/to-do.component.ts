@@ -20,10 +20,13 @@ export class ToDoComponent implements OnInit {
   error = null;
   Priority!: string;
   PriorityStyle!: string;
+  isLoading = false;
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.ToDoService.onFetchToDo().subscribe(
       (response: ToDo[]) => {
+        this.isLoading = false;
         this.loadedToDo = response;
         if (this.loadedToDo.length < 1) {
           this.ShowAddNotes = true;
@@ -34,6 +37,7 @@ export class ToDoComponent implements OnInit {
         }
       },
       (error) => {
+        this.isLoading = false;
         console.log(error);
         this.error = error.message;
         if (error.message === "Cannot read property '_token' of null") {

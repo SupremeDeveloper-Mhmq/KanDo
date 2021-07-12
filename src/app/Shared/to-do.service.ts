@@ -39,6 +39,7 @@ export class ToDoService {
     desc: string;
     Priority: number;
     Due: number;
+    Proggress: number;
   }) {
     return this.authService.user.pipe(
       take(1),

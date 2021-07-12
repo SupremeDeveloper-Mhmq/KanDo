@@ -17,13 +17,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item" *ngIf="isAuthenticated">
-          <a class="nav-link active" aria-current="page" routerLink="/ToDo"
+          <a class="nav-link" aria-current="page" routerLink="/ToDo"
             >Todo's <i class="bi bi-journal-check"></i
           ></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/Kanban" *ngIf="isAuthenticated"
             >Kanban <i class="bi bi-kanban"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Priority" *ngIf="isAuthenticated">
+            Priority <i class="bi bi-calendar2-check-fill"></i
           ></a>
         </li>
       </ul>
