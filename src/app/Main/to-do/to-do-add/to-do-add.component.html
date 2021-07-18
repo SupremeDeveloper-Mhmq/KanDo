@@ -1,4 +1,7 @@
 <div class="row">
+  <button class="btn btn-primary" (click)="onNavigate()">
+    Back <i class="bi bi-arrow-left-short"></i>
+  </button>
   <hr />
   <form #TodoForm="ngForm" class="form-group" (ngSubmit)="onPostToDo(TodoForm)">
     <div class="form-group">

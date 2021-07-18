@@ -23,6 +23,8 @@ export class ToDoComponent implements OnInit {
   isLoading = false;
 
   ngOnInit(): void {
+    localStorage.removeItem('Url');
+    localStorage.setItem('Url', this.router.url);
     this.isLoading = true;
     this.ToDoService.onFetchToDo().subscribe(
       (response: ToDo[]) => {
@@ -48,6 +50,8 @@ export class ToDoComponent implements OnInit {
     );
   }
   onToggle() {
+    const Url = localStorage.getItem('Url');
+    this.router.navigate(['../AddToDo']);
     this.ShowAddNotes = !this.ShowAddNotes;
     this.ShowIcon = !this.ShowIcon;
     this.ToDoService.onFetchToDo().subscribe((response: ToDo[]) => {

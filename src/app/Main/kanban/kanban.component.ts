@@ -21,8 +21,15 @@ export class KanbanComponent implements OnInit {
   Priority!: string;
   PriorityStyle!: string;
   isLoading = false;
+  loadedToDo1: ToDo[] = [];
+  loadedToDo2: ToDo[] = [];
+  loadedToDo3: ToDo[] = [];
+  loadedToDo4: ToDo[] = [];
+  loadedToDo5: ToDo[] = [];
 
   ngOnInit(): void {
+    localStorage.removeItem('Url');
+    localStorage.setItem('Url', this.router.url);
     this.isLoading = true;
     this.ToDoService.onFetchToDo().subscribe(
       (response: ToDo[]) => {
@@ -32,6 +39,25 @@ export class KanbanComponent implements OnInit {
           this.ShowAddNotes = true;
           this.ShowIcon = true;
         } else {
+          for (let T of this.loadedToDo) {
+            if (T.Proggress == 1) {
+              this.loadedToDo1.push(T);
+            } else {
+              if (T.Proggress == 2) {
+                this.loadedToDo2.push(T);
+              } else {
+                if (T.Proggress == 3) {
+                  this.loadedToDo3.push(T);
+                } else {
+                  if (T.Proggress == 4) {
+                    this.loadedToDo4.push(T);
+                  } else {
+                    this.loadedToDo5.push(T);
+                  }
+                }
+              }
+            }
+          }
           this.ShowAddNotes = false;
           this.ShowIcon = false;
         }
@@ -48,6 +74,8 @@ export class KanbanComponent implements OnInit {
     );
   }
   onToggle() {
+    const Url = localStorage.getItem('Url');
+    this.router.navigate(['../AddToDo']);
     this.ShowAddNotes = !this.ShowAddNotes;
     this.ShowIcon = !this.ShowIcon;
     this.ToDoService.onFetchToDo().subscribe((response: ToDo[]) => {

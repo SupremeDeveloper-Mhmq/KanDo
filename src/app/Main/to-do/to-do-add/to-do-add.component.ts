@@ -26,4 +26,8 @@ export class ToDoAddComponent implements OnInit {
     );
   }
   ngOnInit(): void {}
+  onNavigate() {
+    const Url = localStorage.getItem('Url');
+    this.router.navigate([Url]);
+  }
 }

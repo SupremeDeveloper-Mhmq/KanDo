@@ -1,6 +1,6 @@
-import { app, BrowserWindow } from "electron";
-import { format } from "url";
-import { join } from "path";
+const { app, BrowserWindow } = require("electron");
+const url = require("url");
+const path = require("path");
 
 let mainWindow;
 
@@ -14,13 +14,12 @@ function createWindow() {
   });
 
   mainWindow.loadURL(
-    format({
-      pathname: join(__dirname, `/dist/KanDo/index.html`),
+    url.format({
+      pathname: path.join(__dirname, `/dist/KanDo/index.html`),
       protocol: "file:",
       slashes: true,
     })
   );
-  // Open the DevTools.
 
   mainWindow.on("closed", function () {
     mainWindow = null;

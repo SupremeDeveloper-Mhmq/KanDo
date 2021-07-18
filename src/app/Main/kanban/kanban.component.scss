@@ -3,3 +3,165 @@
   margin-right: 15%;
   max-width: 50%;
 }
+.t1 {
+  color: rgb(123, 255, 0);
+}
+.t2 {
+  color: rgb(205, 195, 50);
+}
+.t3 {
+  color: rgb(231, 104, 31);
+}
+.t4 {
+  color: rgb(255, 115, 0);
+}
+.t5 {
+  color: rgb(255, 0, 0);
+}
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.board {
+  position: relative;
+}
+
+.board h1 {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 40px;
+}
+
+.create-column {
+  padding: 10px;
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  background: #22313f;
+  letter-spacing: 1.5px;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+}
+
+.column-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #52b3d9;
+  display: table;
+  min-height: 400px;
+  position: relative;
+}
+
+.column {
+  display: table-cell;
+  width: calc(1200px / 3);
+  position: relative;
+  padding: 0 30px;
+}
+
+.column + .column {
+  border-left: 1px solid white;
+}
+
+.card {
+  background: #2574a9;
+  color: #fff;
+  padding: 10px 14px;
+  position: relative;
+  margin: 2% 2%;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-family: "Lato", sans-serif;
+}
+
+.columnt-card-list {
+  width: 100%;
+  min-height: 60px;
+}
+
+.card-placeholder {
+  padding: 10px 14px;
+  margin: 2% 2%;
+  background: #e4f1fe;
+}
+
+.column > button[class="add-card"] {
+  width: 90%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.card > button[class^="btn"] {
+  background: none;
+  color: #fff;
+  font-weight: 300;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  right: 2%;
+}
+
+.card .btn-delete:hover {
+  color: #22313f;
+  transition: all 0.5s;
+}
+
+.column > button {
+  transform: translateY(100%);
+}
+
+.column > button[class^="btn"] {
+  width: 10%;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.column-title {
+  margin: 20px 0 20px 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  color: #22313f;
+  font-family: "Lato", sans-serif;
+}
+
+.add-card {
+  background: #2574a9;
+  padding: 10px 15px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #fff;
+  font-family: "Lato", sans-serif;
+}
+
+.btn-delete {
+  background: #22313f;
+  font-weight: 300;
+  font-size: 15px;
+  padding: 10px;
+  font-family: "Lato", sans-serif;
+}

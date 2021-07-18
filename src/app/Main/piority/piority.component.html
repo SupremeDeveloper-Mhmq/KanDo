@@ -1,9 +1,9 @@
 <app-loading *ngIf="isLoading"></app-loading>
-<app-to-do-add *ngIf="ShowAddNotes"></app-to-do-add>
+
 <br />
 <div class="wrapper">
   <button class="btn btn-primary" (click)="onToggle()">
-    {{ ShowAddNotes ? "Back To To DO" : "Add To Do" }}
+    {{ ShowAddNotes ? "Back To To Do" : "Add To Do" }}
     <i class="bi {{ ShowIcon ? 'bi-back' : 'bi-plus-lg' }}"></i>
   </button>
   &nbsp;
@@ -30,19 +30,44 @@
     <strong>No Notes were avalible</strong>
   </div>
   <br />
-  <div class="more" *ngIf="!ShowAddNotes && !isLoading">
-    <ul class="list-group" *ngIf="loadedToDo.length >= 1">
-      <li class="list-group-item" *ngFor="let note of loadedToDo">
-        <h1>
-          {{ note.name }}
-        </h1>
-        <p>
-          {{ note.desc }}
-        </p>
-        <strong id="{{ note.Priority }}">
-          {{ note.Priority }}{{ note.Due }}</strong
-        >
-      </li>
-    </ul>
+  <div class="container">
+    <div class="col">
+      <div class="more" *ngIf="!ShowAddNotes">
+        <ul class="list-group" *ngIf="loadedToDo.length >= 1">
+          <div class="card" *ngFor="let ToDo of loadedToDo1">
+            <div class="card-header">
+              <h1>{{ ToDo.name }}</h1>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ ToDo.name }}</h5>
+              <p class="card-text">{{ ToDo.desc }}</p>
+              <h3 class="card-text">
+                <i class="bi bi-exclamation-lg t{{ ToDo.Priority }}"></i>
+              </h3>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <br />
+    <div class="col">
+      <div class="more" *ngIf="!ShowAddNotes">
+        <ul class="list-group" *ngIf="loadedToDo.length >= 1">
+          <div class="card" *ngFor="let ToDo of loadedToDo2">
+            <div class="card-header">
+              <h1>{{ ToDo.name }}</h1>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ ToDo.name }}</h5>
+              <p class="card-text">{{ ToDo.desc }}</p>
+              <h3 class="card-text">
+                <i class="bi bi-exclamation-lg t{{ ToDo.Priority }}"></i>
+              </h3>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <br />
   </div>
 </div>
